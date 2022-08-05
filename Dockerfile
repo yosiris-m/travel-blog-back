@@ -1,4 +1,4 @@
 FROM wefoxgroup/wg-web-challenge:latest
 
-EXPOSE 3000
-ENTRYPOINT ["rails", "server", "-u", "puma", "--binding", "0.0.0.0", "--port", "3000"]
+ENV PORT 3000
+ENTRYPOINT ["/bin/sh", "-c", "bundle exec rails server -u puma --binding 0.0.0.0 --port $PORT"]
